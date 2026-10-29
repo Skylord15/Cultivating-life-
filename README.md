@@ -4,12 +4,12 @@ index.html
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>SYSTEM_CORE v5.0 - Xianxia OS</title>
+    <title>SYSTEM_CORE v6.0 - Autonomous OS</title>
 
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#05070a">
+    <meta name="theme-color" content="#040609">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -54,7 +54,7 @@ index.html
             padding-bottom: env(safe-area-inset-bottom);
         }
 
-        .pb-safe { padding-bottom: calc(5rem + env(safe-area-inset-bottom)); }
+        .pb-safe { padding-bottom: calc(5.5rem + env(safe-area-inset-bottom)); }
         .pt-safe { padding-top: max(1rem, env(safe-area-inset-top)); }
 
         ::-webkit-scrollbar { width: 3px; }
@@ -93,13 +93,13 @@ index.html
         <header class="flex justify-between items-center py-3 mb-4 border-b border-darkBorder/80 bg-darkCard/60 backdrop-blur-md px-3.5 rounded-2xl border shadow-xl">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-xl bg-cyanGlow/10 border border-cyanGlow/40 flex items-center justify-center shadow-[0_0_15px_rgba(0,240,255,0.2)]">
-                    <i class="fa-solid fa-atom text-cyanGlow text-lg animate-spin" style="animation-duration: 12s;"></i>
+                    <i class="fa-solid fa-microchip text-cyanGlow text-lg animate-spin" style="animation-duration: 12s;"></i>
                 </div>
                 <div>
-                    <h1 class="font-mono text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyanGlow via-slate-100 to-goldAccent tracking-wider">
-                        SYSTEM_CORE v5.0
+                    <h1 class="font-mono text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyanGlow via-purpleDao to-goldAccent tracking-wider">
+                        SYSTEM_CORE v6.0
                     </h1>
-                    <p class="text-[9px] text-slate-400 font-mono tracking-widest uppercase" id="header-root-badge">RACINE: MORTEL</p>
+                    <p class="text-[9px] text-slate-400 font-mono tracking-widest uppercase" id="header-root-badge">AUTONOMOUS OS // JACK-OF-ALL-TRADES</p>
                 </div>
             </div>
 
@@ -119,7 +119,7 @@ index.html
             <i class="fa-solid fa-triangle-exclamation text-base animate-bounce shrink-0"></i>
             <div>
                 <strong class="block font-bold">DÉVIATION DU QI DÉTECTÉE</strong>
-                <span>Plus de 24h d'inactivité. Rendement des quêtes réduit de 50%.</span>
+                <span>Plus de 24h d'inactivité. Pénitence requise pour rétablir le flux.</span>
             </div>
         </div>
 
@@ -242,17 +242,17 @@ index.html
                 </div>
             </div>
 
-            <!-- DIRECTIVES DU PALIER -->
+            <!-- DIRECTIVES AUTOMATIQUES DU JOUR -->
             <div class="flex flex-col gap-3">
                 <div class="flex justify-between items-center px-1">
                     <h3 class="font-mono text-xs font-bold text-slate-300 flex items-center gap-2 uppercase tracking-wider">
-                        <i class="fa-solid fa-bars-staggered text-cyanGlow"></i>
-                        Directives d'Optimisation
+                        <i class="fa-solid fa-robot text-cyanGlow"></i>
+                        Directives Autonomes du Jour
                     </h3>
                     
-                    <button id="add-quest-modal-btn" class="px-2.5 py-1 rounded-lg bg-cyanGlow/10 border border-cyanGlow/30 text-cyanGlow text-xs font-mono font-semibold flex items-center gap-1 active:scale-95">
-                        <i class="fa-solid fa-plus"></i>
-                        <span>Directive</span>
+                    <button id="regenerate-quests-btn" class="px-2.5 py-1 rounded-lg bg-purpleDao/10 border border-purpleDao/30 text-purpleDao text-xs font-mono font-semibold flex items-center gap-1.5 active:scale-95">
+                        <i class="fa-solid fa-arrows-rotate"></i>
+                        <span>Régénérer</span>
                     </button>
                 </div>
 
@@ -367,7 +367,7 @@ index.html
 
     </div>
 
-    <!-- NAVBAR MOBIL -->
+    <!-- NAVBAR MOBILE -->
     <nav class="fixed bottom-0 left-0 right-0 bg-darkCard/95 backdrop-blur-lg border-t border-darkBorder z-40 py-2 px-3 flex justify-around items-center max-w-md mx-auto font-mono">
         <button class="nav-tab active flex flex-col items-center gap-1 text-cyanGlow transition-colors" data-target="tab-cultivation">
             <i class="fa-solid fa-microchip text-base"></i>
@@ -441,7 +441,6 @@ index.html
             </div>
 
             <div id="tribulation-body" class="space-y-3 font-sans text-xs">
-                <!-- Contenu généré dynamiquement -->
             </div>
 
             <div id="tribulation-status" class="hidden text-xs font-mono p-2.5 rounded-xl text-center"></div>
@@ -470,51 +469,6 @@ index.html
         </div>
     </div>
 
-    <!-- MODAL: NOUVELLE DIRECTIVE -->
-    <div id="quest-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-darkBg/90 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
-        <div class="bg-darkCard border border-goldAccent/40 rounded-2xl p-5 w-full max-w-sm shadow-2xl space-y-4">
-            <h3 class="font-mono text-sm font-bold text-goldAccent flex items-center gap-2">
-                <i class="fa-solid fa-plus-circle"></i>
-                Nouvelle Directive Personnalisée
-            </h3>
-
-            <div class="space-y-3 text-xs font-sans">
-                <div>
-                    <label class="block text-slate-400 mb-1 font-mono">Objectif de la Directive</label>
-                    <input type="text" id="custom-quest-title" placeholder="Ex: Résoudre 5 exercices de thermo" class="w-full bg-darkBg border border-darkBorder rounded-xl p-3 text-slate-200 outline-none focus:border-goldAccent">
-                </div>
-
-                <div>
-                    <label class="block text-slate-400 mb-1 font-mono">Catégorie d'Attribut</label>
-                    <select id="custom-quest-cat" class="w-full bg-darkBg border border-darkBorder rounded-xl p-3 text-slate-200 outline-none focus:border-goldAccent font-mono">
-                        <option value="vigueur">Vigueur (Physique)</option>
-                        <option value="esprit" selected>Esprit (Physique / Maths)</option>
-                        <option value="ancrage">Ancrage (Routine)</option>
-                        <option value="agilite">Agilité (Focus)</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label class="block text-slate-400 mb-1 font-mono">Type</label>
-                    <select id="custom-quest-req" class="w-full bg-darkBg border border-darkBorder rounded-xl p-3 text-slate-200 outline-none focus:border-goldAccent font-mono">
-                        <option value="mandatory">Obligatoire (Palier)</option>
-                        <option value="optional">Optionnel (Bonus)</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label class="block text-slate-400 mb-1 font-mono">Valeur (Units)</label>
-                    <input type="number" id="custom-quest-qi" value="30" min="10" max="100" class="w-full bg-darkBg border border-darkBorder rounded-xl p-3 text-slate-200 outline-none focus:border-goldAccent font-mono">
-                </div>
-            </div>
-
-            <div class="flex gap-2 pt-2 font-mono">
-                <button id="cancel-quest-btn" class="flex-1 py-2.5 rounded-xl border border-darkBorder text-slate-400 text-xs font-semibold">Annuler</button>
-                <button id="save-quest-btn" class="flex-1 py-2.5 rounded-xl bg-goldAccent text-darkBg text-xs font-bold">Consigner</button>
-            </div>
-        </div>
-    </div>
-
     <!-- MODAL EXPORT/IMPORT -->
     <div id="export-import-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-darkBg/90 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
         <div class="bg-darkCard border border-goldAccent/40 rounded-2xl p-5 w-full max-w-sm space-y-4">
@@ -530,31 +484,47 @@ index.html
         </div>
     </div>
 
-    <!-- JAVASCRIPT APP LOGIC v5.0 -->
+    <!-- JAVASCRIPT APP LOGIC v6.0 -->
     <script>
-        // DATA DES 10 PALIERS THÉMATIQUES AVEC EXPONANITIEL DENSITÉ
+        // BANQUE GÉANTE DE TEMPLATES PRÉCIS POUR PROFIL JACK-OF-ALL-TRADES
+        const QUEST_DATABASE = [
+            // 🏋️‍♂️ CALISTHÉNIE & FORCE
+            { id: "q_handstand", cat: "vigueur", title: "Programme Handstand & Équilibre", desc: "5 séries : Maintenir un Handstand (libre ou mur) pendant 30s. Repos 60s entre séries.", minTime: 15, baseQi: 35 },
+            { id: "q_tractions", cat: "vigueur", title: "Routine Tractions & Tirage", desc: "4 séries de 8 à 12 tractions strictes (Pronation) + 3 séries de 10 tractions Chin-ups.", minTime: 20, baseQi: 40 },
+            { id: "q_pompes_diamant", cat: "vigueur", title: "Circuit Pectoraux / Triceps", desc: "4 séries de 15 Pompes Diamant + 4 séries de 12 Dips au poids du corps.", minTime: 20, baseQi: 35 },
+            { id: "q_gainage", cat: "vigueur", title: "Protocole Gainage Profond", desc: "3 tours : 1 min Planche ventrale, 45s Planche latérale gauche, 45s Planche latérale droite. 30s repos.", minTime: 15, baseQi: 30 },
+
+            // ⚡ PHYSIQUE-CHIMIE UNIVERSITAIRE & MATHS
+            { id: "q_electrostatique", cat: "esprit", title: "Exercice : Champ Électrostatique d'un Fil", desc: "Calculer le champ électrique E(r) créé par un fil rectiligne infini chargé avec une densité surfacique λ à une distance r = 5cm. Formule : E = λ / (2πε₀r). Démonstration par Gauss.", minTime: 30, baseQi: 50 },
+            { id: "q_algebre_lineaire", cat: "esprit", title: "Exercice : Diagonalisation de Matrice 2x2", desc: "Trouver les valeurs propres et les vecteurs propres de la matrice A = [[4, 1], [2, 3]]. Déterminer la matrice P de passage.", minTime: 30, baseQi: 45 },
+            { id: "q_equations_diff", cat: "esprit", title: "Exercice : Équation Différentielle d'Oscillateur", desc: "Résoudre y''(t) + 4y'(t) + 13y(t) = 0 avec y(0) = 1 et y'(0) = 0. Identifier le régime d'amortissement.", minTime: 30, baseQi: 45 },
+            { id: "q_thermo", cat: "esprit", title: "Exercice : Rendement d'un Cycle de Carnot", desc: "Un moteur thermique fonctionne entre T_chaude = 500 K et T_froide = 300 K. Calculer son rendement théorique maximal η, et Q_froide si Q_chaude = 1200 J.", minTime: 30, baseQi: 50 },
+
+            // 🧠 CALCUL MENTAL RAPIDE
+            { id: "q_mult_25", cat: "esprit", title: "Calcul Mental : Série de 10 Multiplications", desc: "Résoudre de tête : 48×25, 84×25, 36×125, 64×125, 112×25, 76×25, 144×25, 28×125, 92×25, 52×125.", minTime: 15, baseQi: 30 },
+            { id: "q_carres_5", cat: "esprit", title: "Calcul Mental : Carrés en 5 & Pourcentages", desc: "Calculer de tête : 35², 65², 85², 115² + Calculer 15% de 480, 35% de 240, 65% de 180.", minTime: 15, baseQi: 30 },
+
+            // 🧘‍♂️ ANCRAGE, SOUPLESSE & BREATHWORK
+            { id: "q_coherence_cardiaque", cat: "ancrage", title: "Protocole Respiration 5-5-5", desc: "12 minutes de cohérence cardiaque stricte : 5s inspiration, 5s rétention, 5s expiration. Aucun mouvement.", minTime: 12, baseQi: 25 },
+            { id: "q_ouverture_hanches", cat: "ancrage", title: "Programme Souplesse : Hanches & Psoas", desc: "Holding de 2 min par côté : Fente basse profonde, Posture du Pigeon, Étirement des ischio-jambiers.", minTime: 20, baseQi: 30 },
+
+            // 🎯 DISCIPLINE, ORGANISATION & SECOND BRAIN
+            { id: "q_deep_work", cat: "agilite", title: "Session Deep Work Strict (45 min)", desc: "45 minutes d'immersion totale sur tes cours de licence. Téléphone éteint / dans une autre pièce.", minTime: 45, baseQi: 45 },
+            { id: "q_second_brain", cat: "agilite", title: "Synthèse & Fichage Méthodique", desc: "Rédiger 1 fiche de révision complète ou mettre à jour tes fiches de cours sur Notion/Obsidian.", minTime: 25, baseQi: 35 }
+        ];
+
+        // 10 PALIERS DE CULTIVATION
         const MASTER_REALMS = [
-            { id: 1, title: "BODY_FORGING", nameFr: "Forge du Corps", badge: "PALIER 01", icon: "fa-dumbbell", targetQi: 100, desc: "Ancrage d'une structure physique et spatiale sans faille.", quests: [
-                { id: "bf_1", title: "Santé du Vaisseau Biologique", desc: "45 min de musculation ou cardio intense.", qi: 30, cat: "vigueur", difficulty: "Facile", mandatory: true, minTime: 30, completed: false },
-                { id: "bf_2", title: "Sanctuaire de Travail", desc: "Rangement complet et purification de l'espace de travail.", qi: 25, cat: "ancrage", difficulty: "Facile", mandatory: true, minTime: 15, completed: false },
-                { id: "bf_3", title: "Mobilité Articulaire", desc: "Routine d'étirements de 20 min.", qi: 20, cat: "vigueur", difficulty: "Facile", mandatory: false, minTime: 10, completed: false }
-            ]},
-            { id: 2, title: "QI_REFINING", nameFr: "Raffinage des Données", badge: "PALIER 02", icon: "fa-brain", targetQi: 180, desc: "Assimilation d'informations théoriques brutes et purge des distractions.", quests: [
-                { id: "qr_1", title: "Concentration Ciblée (Licence)", desc: "1h d'étude active en physique/mathématiques.", qi: 40, cat: "esprit", difficulty: "Moyenne", mandatory: true, minTime: 40, completed: false },
-                { id: "qr_2", title: "Purge des Flux Parasites", desc: "Zéro réseaux sociaux pendant toute la journée.", qi: 35, cat: "agilite", difficulty: "Moyenne", mandatory: true, minTime: 60, completed: false }
-            ]},
-            { id: 3, title: "FOUNDATION_ESTABLISHMENT", nameFr: "Fondation Inébranlable", badge: "PALIER 03", icon: "fa-cubes-stacked", targetQi: 280, desc: "Ancrage des structures de pensée permanentes.", quests: [
-                { id: "fe_1", title: "Feynman Technique Session", desc: "Expliquer un concept d'électrostatique ou d'algèbre de A à Z.", qi: 50, cat: "esprit", difficulty: "Difficile", mandatory: true, minTime: 45, completed: false }
-            ]},
-            { id: 4, title: "GOLDEN_CORE", nameFr: "Noyau Cristallisé", badge: "PALIER 04", icon: "fa-atom", targetQi: 400, desc: "Cristallisation de l'autonomie intellectuelle.", quests: [
-                { id: "gc_1", title: "Résolution de Problème Complexe", desc: "3 exercices complets d'analyse ou de thermodynamique.", qi: 60, cat: "esprit", difficulty: "Difficile", mandatory: true, minTime: 50, completed: false }
-            ]},
-            { id: 5, title: "NASCENT_SOUL", nameFr: "Expansion Stratégique", badge: "PALIER 05", icon: "fa-network-wired", targetQi: 550, desc: "Émergence d'une vision long terme sans biais.", quests: []},
-            { id: 6, title: "SOUL_FORMATION", nameFr: "Harmonisation Cognition", badge: "PALIER 06", icon: "fa-eye", targetQi: 720, desc: "Suppression des frictions entre décision et exécution.", quests: []},
-            { id: 7, title: "VOID_REFINEMENT", nameFr: "Silence Mental Absolu", badge: "PALIER 07", icon: "fa-wind", targetQi: 900, desc: "Contrôle parfait de l'agitation interne.", quests: []},
-            { id: 8, title: "BODY_INTEGRATION", nameFr: "Intégration Totale", badge: "PALIER 08", icon: "fa-dna", targetQi: 1100, desc: "Harmonie absolue entre physique et mental.", quests: []},
-            { id: 9, title: "MAHAYANA", nameFr: "Grande Synthèse", badge: "PALIER 09", icon: "fa-sun", targetQi: 1350, desc: "Création de structures de valeur durable.", quests: []},
-            { id: 10, title: "TRANSCENDENCE", nameFr: "Transcendance Suprême", badge: "PALIER 10", icon: "fa-infinity", targetQi: 1600, desc: "Accomplissement complet de la voie de cultivation.", quests: []}
+            { id: 1, title: "BODY_FORGING", nameFr: "Forge du Corps", badge: "PALIER 01", targetQi: 100, reqCategory: "vigueur", desc: "Ancrage d'une structure physique et spatiale sans faille." },
+            { id: 2, title: "QI_REFINING", nameFr: "Raffinage des Données", badge: "PALIER 02", targetQi: 180, reqCategory: "esprit", desc: "Assimilation d'informations théoriques brutes et purge des distractions." },
+            { id: 3, title: "FOUNDATION_ESTABLISHMENT", nameFr: "Fondation Inébranlable", badge: "PALIER 03", targetQi: 280, reqCategory: "esprit", desc: "Ancrage des structures de pensée permanentes." },
+            { id: 4, title: "GOLDEN_CORE", nameFr: "Noyau Cristallisé", badge: "PALIER 04", targetQi: 400, reqCategory: "vigueur", desc: "Cristallisation de l'autonomie intellectuelle et physique." },
+            { id: 5, title: "NASCENT_SOUL", nameFr: "Expansion Stratégique", badge: "PALIER 05", targetQi: 550, reqCategory: "agilite", desc: "Émergence d'une vision long terme sans biais." },
+            { id: 6, title: "SOUL_FORMATION", nameFr: "Harmonisation Cognition", badge: "PALIER 06", targetQi: 720, reqCategory: "esprit", desc: "Suppression des frictions entre décision et exécution." },
+            { id: 7, title: "VOID_REFINEMENT", nameFr: "Silence Mental Absolu", badge: "PALIER 07", targetQi: 900, reqCategory: "ancrage", desc: "Contrôle parfait de l'agitation interne." },
+            { id: 8, title: "BODY_INTEGRATION", nameFr: "Intégration Totale", badge: "PALIER 08", targetQi: 1100, reqCategory: "vigueur", desc: "Harmonie absolue entre physique et mental." },
+            { id: 9, title: "MAHAYANA", nameFr: "Grande Synthèse", badge: "PALIER 09", targetQi: 1350, reqCategory: "esprit", desc: "Création de structures de valeur durable." },
+            { id: 10, title: "TRANSCENDENCE", nameFr: "Transcendance Suprême", badge: "PALIER 10", targetQi: 1600, reqCategory: "agilite", desc: "Accomplissement complet de la voie de cultivation." }
         ];
 
         // PANTHEON DES TITRES
@@ -567,9 +537,9 @@ index.html
 
         // TECHNIQUES DIVINES & ARTS MARTIAUX
         const INITIAL_SKILLS = [
-            { id: "s1", name: "L'Épée de Concentration Céleste", type: "Esprit", level: 1, maxLvl: 5, reps: 0, targetReps: 5, bonus: "+5% XP Esprit" },
-            { id: "s2", name: "Posture du Palmier d'Acier (Handstand)", type: "Vigueur", level: 1, maxLvl: 5, reps: 0, targetReps: 5, bonus: "+5% XP Vigueur" },
-            { id: "s3", name: "Respiration du Vide Mental", type: "Ancrage", level: 1, maxLvl: 5, reps: 0, targetReps: 5, bonus: "+5% Qi Passif" }
+            { id: "s1", name: "L'Épée de Concentration Céleste", type: "esprit", level: 1, maxLvl: 5, reps: 0, targetReps: 5, bonus: "+5% XP Esprit" },
+            { id: "s2", name: "Posture du Palmier d'Acier (Handstand)", type: "vigueur", level: 1, maxLvl: 5, reps: 0, targetReps: 5, bonus: "+5% XP Vigueur" },
+            { id: "s3", name: "Respiration du Vide Mental", type: "ancrage", level: 1, maxLvl: 5, reps: 0, targetReps: 5, bonus: "+5% Qi Passif" }
         ];
 
         let appData = {
@@ -578,28 +548,25 @@ index.html
             currentRealmIdx: 0,
             attributes: { vigueur: 0, esprit: 0, ancrage: 0, agilite: 0 },
             streak: 0,
-            lastCompletedDate: null,
+            lastResetDate: null,
             lastActivityTimestamp: Date.now(),
+            recentQuestIds: [],
             quests: [],
             skills: INITIAL_SKILLS,
             titles: PANTHEON_TITLES,
             activeTitleId: "t1",
             idleQi: 0.0,
-            journal: [{ id: "j1", date: new Date().toLocaleDateString(), text: "SYSTEM_CORE v5.0 initialisé." }],
-            chatHistory: [{ sender: "system", text: "Salutations, Hôte. Le moteur d'audit chrono-intelligent v5.0 est en ligne." }]
+            chatHistory: [{ sender: "system", text: "SYSTEM_CORE v6.0 autonome initialisé. Prêt pour l'entraînement quotidien." }]
         };
 
         let pendingQuestIndex = null;
-        let currentTribulationType = null; // 'physical' ou 'mental'
+        let currentTribulationType = null;
         let currentMentalAnswer = 0;
 
         function loadState() {
-            const saved = localStorage.getItem("system_cultivation_mobile_v50");
+            const saved = localStorage.getItem("system_core_v6_data");
             if (saved) {
                 try { appData = { ...appData, ...JSON.parse(saved) }; } catch(e){}
-            }
-            if (!appData.quests || appData.quests.length === 0) {
-                loadRealmQuests(appData.currentRealmIdx);
             }
             checkDailyReset();
             checkInstability();
@@ -607,21 +574,63 @@ index.html
         }
 
         function saveState() {
-            localStorage.setItem("system_cultivation_mobile_v50", JSON.stringify(appData));
+            localStorage.setItem("system_core_v6_data", JSON.stringify(appData));
         }
 
-        function loadRealmQuests(idx) {
-            const r = MASTER_REALMS[idx] || MASTER_REALMS[0];
-            appData.maxQi = r.targetQi;
-            appData.quests = JSON.parse(JSON.stringify(r.quests));
+        // ALGORITHME DE GÉNÉRATION AUTOMATIQUE ANTI-REDONDANCE
+        function generateDailyQuests(force = false) {
+            const today = new Date().toDateString();
+            if (!force && appData.lastResetDate === today && appData.quests.length > 0) return;
+
+            const realm = MASTER_REALMS[appData.currentRealmIdx] || MASTER_REALMS[0];
+            appData.maxQi = realm.targetQi;
+
+            let available = QUEST_DATABASE.filter(q => !appData.recentQuestIds.includes(q.id));
+            if (available.length < 5) available = [...QUEST_DATABASE];
+
+            available.sort(() => Math.random() - 0.5);
+
+            const selected = [];
+            const categoriesPicked = new Set();
+
+            const reqQuest = available.find(q => q.cat === realm.reqCategory);
+            if (reqQuest) {
+                selected.push({ ...reqQuest, mandatory: true, completed: false, proof: "" });
+                categoriesPicked.add(reqQuest.cat);
+            }
+
+            for (let q of available) {
+                if (selected.length >= 4) break;
+                if (!selected.some(s => s.id === q.id)) {
+                    const isMandatory = !categoriesPicked.has(q.cat) && selected.length < 2;
+                    selected.push({ ...q, mandatory: isMandatory, completed: false, proof: "" });
+                    categoriesPicked.add(q.cat);
+                }
+            }
+
+            const newIds = selected.map(s => s.id);
+            appData.recentQuestIds = Array.from(new Set([...newIds, ...appData.recentQuestIds])).slice(0, 10);
+
+            appData.quests = selected.map((q, idx) => ({
+                id: q.id + '_' + Date.now() + '_' + idx,
+                title: q.title,
+                desc: q.desc,
+                qi: q.baseQi + (appData.currentRealmIdx * 5),
+                cat: q.cat,
+                minTime: q.minTime,
+                mandatory: q.mandatory,
+                completed: false,
+                proof: ""
+            }));
+
+            appData.lastResetDate = today;
+            saveState();
         }
 
         function checkDailyReset() {
             const today = new Date().toDateString();
             if (appData.lastResetDate !== today) {
-                appData.quests.forEach(q => { q.completed = false; q.proof = ""; });
-                appData.lastResetDate = today;
-                saveState();
+                generateDailyQuests(true);
             }
         }
 
@@ -652,7 +661,7 @@ index.html
             particles.push({
                 x: Math.random() * canvas.width, y: Math.random() * canvas.height,
                 radius: Math.random() * 1.8 + 0.4,
-                color: Math.random() > 0.4 ? '#00f0ff' : '#e5b869',
+                color: Math.random() > 0.4 ? '#00f0ff' : '#a855f7',
                 vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
                 alpha: Math.random() * 0.5 + 0.2
             });
@@ -715,14 +724,13 @@ index.html
             const totalAttr = appData.attributes.vigueur + appData.attributes.esprit + appData.attributes.ancrage + appData.attributes.agilite;
             document.getElementById("total-attributes-pts").innerText = `Total XP: ${totalAttr}`;
 
-            // Check breakthrough condition
             const mandatoryQuests = appData.quests.filter(q => q.mandatory);
             const allMandatoryDone = mandatoryQuests.length > 0 && mandatoryQuests.every(q => q.completed);
             const bBtn = document.getElementById("breakthrough-btn");
 
             if (appData.qi >= appData.maxQi && allMandatoryDone) {
                 bBtn.removeAttribute("disabled");
-                bBtn.className = "w-full py-3 rounded-xl font-mono font-bold text-xs uppercase tracking-wider transition-all duration-300 bg-gradient-to-r from-cyanGlow to-goldAccent text-darkBg cursor-pointer shadow-[0_0_20px_rgba(0,240,255,0.4)] flex items-center justify-center gap-2";
+                bBtn.className = "w-full py-3 rounded-xl font-mono font-bold text-xs uppercase tracking-wider transition-all duration-300 bg-gradient-to-r from-cyanGlow via-purpleDao to-goldAccent text-darkBg cursor-pointer shadow-[0_0_20px_rgba(0,240,255,0.4)] flex items-center justify-center gap-2";
             } else {
                 bBtn.setAttribute("disabled", "true");
                 bBtn.className = "w-full py-3 rounded-xl font-mono font-bold text-xs uppercase tracking-wider transition-all duration-300 opacity-50 cursor-not-allowed bg-slate-900 text-slate-500 border border-slate-800 flex items-center justify-center gap-2";
@@ -739,7 +747,7 @@ index.html
             container.innerHTML = "";
 
             if (appData.quests.length === 0) {
-                container.innerHTML = `<p class="text-xs text-slate-500 text-center py-4 font-mono">Aucune directive pour ce palier.</p>`;
+                container.innerHTML = `<p class="text-xs text-slate-500 text-center py-4 font-mono">Aucune directive pour ce jour.</p>`;
                 return;
             }
 
@@ -755,9 +763,9 @@ index.html
                         <div class="min-w-0 flex-1">
                             <div class="flex items-center gap-2">
                                 <h4 class="text-xs font-bold font-mono text-slate-200 truncate ${q.completed ? 'line-through text-slate-500' : ''}">${q.title}</h4>
-                                ${q.mandatory ? '<span class="text-[8px] px-1.5 py-0.5 rounded bg-systemRed/20 text-systemRed border border-systemRed/30 font-mono">REQUIS</span>' : ''}
+                                ${q.mandatory ? '<span class="text-[8px] px-1.5 py-0.5 rounded bg-systemRed/20 text-systemRed border border-systemRed/30 font-mono shrink-0">OBLIGATOIRE</span>' : ''}
                             </div>
-                            <p class="text-[11px] text-slate-400 truncate font-sans">${q.proof ? 'Audit: ' + q.proof : (q.desc || '')}</p>
+                            <p class="text-[11px] text-slate-400 font-sans">${q.proof ? 'Audit: ' + q.proof : (q.desc || '')}</p>
                             <div class="flex items-center gap-2 mt-1 font-mono text-[9px] text-slate-500">
                                 <span><i class="fa-solid fa-clock mr-1"></i>Min: ${q.minTime || 15}m</span>
                                 <span>•</span>
@@ -765,11 +773,15 @@ index.html
                             </div>
                         </div>
                     </div>
-                    <button onclick="deleteQuest(${index})" class="text-slate-600 hover:text-systemRed p-1 text-xs"><i class="fa-solid fa-trash"></i></button>
                 `;
                 container.appendChild(card);
             });
         }
+
+        document.getElementById("regenerate-quests-btn").addEventListener("click", () => {
+            generateDailyQuests(true);
+            renderUI();
+        });
 
         window.requestVerification = function(index) {
             const q = appData.quests[index];
@@ -787,7 +799,7 @@ index.html
             pendingQuestIndex = null;
         });
 
-        // AUDIT CHRONO-INTELLIGENT AVEC ENTROPIE ET TEMPS RÉEL
+        // AUDIT CHRONO-INTELLIGENT
         document.getElementById("confirm-verification-btn").addEventListener("click", () => {
             if (pendingQuestIndex === null) return;
             const q = appData.quests[pendingQuestIndex];
@@ -796,14 +808,12 @@ index.html
             const statusEl = document.getElementById("audit-status");
             statusEl.classList.remove("hidden");
 
-            // 1. Audit Temps Réel
             if (declaredTime < (q.minTime || 10)) {
                 statusEl.className = "text-xs font-mono p-2.5 rounded-xl text-center bg-systemRed/20 text-systemRed border border-systemRed/40";
                 statusEl.innerText = `⛔ TEMPS INSUFFISANT : Minimum ${q.minTime || 10} minutes requises par le Système.`;
                 return;
             }
 
-            // 2. Audit de Cohérence & Entropie
             const auditResult = performLocalStrictAudit(proofText);
             if (!auditResult.approved) {
                 statusEl.className = "text-xs font-mono p-2.5 rounded-xl text-center bg-systemRed/20 text-systemRed border border-systemRed/40";
@@ -811,7 +821,6 @@ index.html
                 return;
             }
 
-            // Validation Accordée
             q.completed = true;
             q.proof = proofText + ` (${declaredTime} min)`;
 
@@ -820,7 +829,11 @@ index.html
             const cat = q.cat || 'esprit';
             appData.attributes[cat] = (appData.attributes[cat] || 0) + Math.round(earned * 0.8);
 
-            // Progression des Arts Martiaux
+            const mandatories = appData.quests.filter(item => item.mandatory);
+            if (mandatories.every(m => m.completed)) {
+                appData.streak += 1;
+            }
+
             appData.skills.forEach(s => {
                 if (s.type.toLowerCase() === cat.toLowerCase()) {
                     s.reps += 1;
@@ -844,16 +857,9 @@ index.html
         });
 
         function performLocalStrictAudit(text) {
-            if (!text || text.length < 20) return { approved: false, reason: "Rapport trop court (min 20 caractères)." };
-            if (/(.)\1{3,}/i.test(text) || /(azerty|qwerty|asdf|zxcv|1234)/i.test(text)) return { approved: false, reason: "Spam clavier détecté." };
-            const words = text.toLowerCase().split(/\s+/).filter(w => w.length > 0);
-            if (words.length < 4) return { approved: false, reason: "Structure de phrase invalide." };
+            if (!text || text.length < 15) return { approved: false, reason: "Rapport trop succinct (min 15 caractères)." };
+            if (/(.)\1{3,}/i.test(text) || /(azerty|qwerty|asdf|zxcv|1234)/i.test(text)) return { approved: false, reason: "Spam ou répétition de touches détectée." };
             return { approved: true, reason: "Cohérence validée." };
-        }
-
-        window.deleteQuest = function(index) {
-            appData.quests.splice(index, 1);
-            saveState(); renderUI();
         }
 
         function renderSkills() {
@@ -905,31 +911,30 @@ index.html
             saveState(); renderUI();
         }
 
-        // TRIBULATION CÉLESTE MULTIMODALE (SIMULATION VIDÉO & PHOTO PROBLÈME)
+        // TRIBULATION CÉLESTE MULTIMODALE
         document.getElementById("breakthrough-btn").addEventListener("click", () => {
             const modal = document.getElementById("breakthrough-modal");
             const body = document.getElementById("tribulation-body");
             
-            // Alternance Épreuve Physique / Épreuve Math/Physique
             currentTribulationType = Math.random() > 0.5 ? 'physical' : 'mental';
 
             if (currentTribulationType === 'physical') {
                 body.innerHTML = `
                     <div class="p-3 bg-darkBg rounded-xl border border-darkBorder space-y-2">
-                        <span class="text-[10px] text-goldAccent font-mono block">ÉPREUVE PHYSIQUE // HANDSTAND / POSTURE</span>
-                        <p class="text-slate-300 text-xs">Exécutez un <strong>Handstand (équilibre sur les mains)</strong> ou du gainage strict pendant 30s. Téléversez la vidéo d'analyse pour l'IA.</p>
+                        <span class="text-[10px] text-goldAccent font-mono block">ÉPREUVE PHYSIQUE // HANDSTAND & POSTURE</span>
+                        <p class="text-slate-300 text-xs">Maintenez un <strong>Handstand libre de 30 secondes</strong> ou un gainage strict de 2 minutes. Téléversez la preuve vidéo pour l'IA.</p>
                         <input type="file" id="tribulation-video-input" accept="video/*" class="w-full text-xs text-slate-400 bg-darkCard p-2 rounded-xl border border-darkBorder">
                     </div>
                 `;
             } else {
-                const n1 = Math.floor(Math.random() * 20) + 10;
-                const n2 = Math.floor(Math.random() * 15) + 5;
+                const n1 = Math.floor(Math.random() * 25) + 12;
+                const n2 = Math.floor(Math.random() * 18) + 6;
                 currentMentalAnswer = n1 * n2;
 
                 body.innerHTML = `
                     <div class="p-3 bg-darkBg rounded-xl border border-darkBorder space-y-2">
-                        <span class="text-[10px] text-cyanGlow font-mono block">ÉPREUVE ACADÉMIQUE // PHYSIQUE & MATHS</span>
-                        <p class="text-slate-300 text-xs">Calculez le produit de la matrice d'onde : <strong>${n1} × ${n2}</strong>.</p>
+                        <span class="text-[10px] text-cyanGlow font-mono block">ÉPREUVE ACADÉMIQUE // MATRICES & CALCUL</span>
+                        <p class="text-slate-300 text-xs">Calculez le déterminant de la matrice d'onde : <strong>${n1} × ${n2}</strong>.</p>
                         <input type="number" id="tribulation-math-input" placeholder="Résultat du calcul..." class="w-full bg-darkCard border border-darkBorder rounded-xl p-2.5 text-slate-200 font-mono text-xs outline-none">
                         <label class="block text-[10px] text-slate-400 mt-2">Photo de la feuille de brouillon (IA Scan) :</label>
                         <input type="file" id="tribulation-photo-input" accept="image/*" class="w-full text-xs text-slate-400 bg-darkCard p-2 rounded-xl border border-darkBorder">
@@ -960,14 +965,13 @@ index.html
                 }
             }
 
-            // ÉCRAN DE RÉUSSITE D'ÉLEVATION
             statusEl.className = "text-xs font-mono p-2.5 rounded-xl text-center bg-jadeGreen/20 text-jadeGreen border border-jadeGreen/40";
-            statusEl.innerText = "✅ TRIBULATION SURMONTÉE ! ÉLEVATION EN COURS...";
+            statusEl.innerText = "✅ TRIBULATION SURMONTÉE ! ÉLEVATION DU PALIER EN COURS...";
 
             setTimeout(() => {
                 appData.qi = 0;
                 appData.currentRealmIdx = Math.min(MASTER_REALMS.length - 1, appData.currentRealmIdx + 1);
-                loadRealmQuests(appData.currentRealmIdx);
+                generateDailyQuests(true);
                 saveState();
                 renderUI();
                 document.getElementById("breakthrough-modal").classList.add("opacity-0", "pointer-events-none");
@@ -1001,8 +1005,8 @@ index.html
 
             if (ans.includes("obscurité") || ans.includes("ombre") || ans.includes("noir")) {
                 statusEl.className = "text-xs font-mono p-2 rounded-xl text-center bg-jadeGreen/20 text-jadeGreen";
-                statusEl.innerText = "✅ TRÉSOR DÉBLOQUÉ : +40 Units de Qi !";
-                appData.qi += 40;
+                statusEl.innerText = "✅ TRÉSOR DÉBLOQUÉ : +45 Units de Qi !";
+                appData.qi += 45;
                 saveState();
                 setTimeout(() => {
                     document.getElementById("ruins-modal").classList.add("opacity-0", "pointer-events-none");
@@ -1037,7 +1041,7 @@ index.html
         }
 
         document.getElementById("run-appraisal-scan-btn").addEventListener("click", () => {
-            appData.chatHistory.push({ sender: "system", text: "🔍 [ANALYSE SYSTEME] Faible volume de quêtes d'Esprit aujourd'hui. Risque de stagnation cognitive." });
+            appData.chatHistory.push({ sender: "system", text: "🔍 [SCAN AUTONOME] Répartition du profil Jack-of-All-Trades vérifiée. Bon équilibre physique et mental." });
             saveState(); renderUI();
         });
 
@@ -1048,42 +1052,12 @@ index.html
             if (!val) return;
             input.value = "";
             appData.chatHistory.push({ sender: "user", text: val });
-            appData.chatHistory.push({ sender: "system", text: "Rapport consigné dans le Journal d'Analyse." });
+            appData.chatHistory.push({ sender: "system", text: "Rapport analysé par l'IA du Système." });
             saveState(); renderUI();
         });
 
         document.getElementById("clear-chat-btn").addEventListener("click", () => {
             appData.chatHistory = [{ sender: "system", text: "Terminal réinitialisé." }];
-            saveState(); renderUI();
-        });
-
-        // ADD CUSTOM QUEST
-        const questModal = document.getElementById("quest-modal");
-        document.getElementById("add-quest-modal-btn").addEventListener("click", () => questModal.classList.remove("opacity-0", "pointer-events-none"));
-        document.getElementById("cancel-quest-btn").addEventListener("click", () => questModal.classList.add("opacity-0", "pointer-events-none"));
-
-        document.getElementById("save-quest-btn").addEventListener("click", () => {
-            const title = document.getElementById("custom-quest-title").value.trim();
-            const cat = document.getElementById("custom-quest-cat").value;
-            const isMandatory = document.getElementById("custom-quest-req").value === 'mandatory';
-            const qiVal = parseInt(document.getElementById("custom-quest-qi").value) || 30;
-
-            if (!title) return;
-
-            appData.quests.push({
-                id: 'q_' + Date.now(),
-                title: title,
-                desc: "Directive personnalisée.",
-                qi: qiVal,
-                cat: cat,
-                mandatory: isMandatory,
-                minTime: 20,
-                completed: false,
-                proof: ""
-            });
-
-            document.getElementById("custom-quest-title").value = "";
-            questModal.classList.add("opacity-0", "pointer-events-none");
             saveState(); renderUI();
         });
 
@@ -1096,7 +1070,7 @@ index.html
             const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(appData, null, 2));
             const a = document.createElement('a');
             a.setAttribute("href", dataStr);
-            a.setAttribute("download", `system_core_v5_${new Date().toISOString().slice(0,10)}.json`);
+            a.setAttribute("download", `system_core_v6_${new Date().toISOString().slice(0,10)}.json`);
             a.click();
         });
 
